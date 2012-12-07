@@ -1,0 +1,62 @@
+// SampleCOMDataType.idl : IDL source for SampleCOMDataType
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SampleCOMDataType.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef
+[
+	uuid(56CE11B6-E5CA-400f-B1E8-D7C5DDB6D053),  
+	helpstring("SampleStruct")   
+]
+struct _SampleStruct
+{
+	[helpstring("ID")] short ID;
+	[helpstring("stringName")] BSTR stringName;
+} SampleStruct;
+
+[
+	object,
+	uuid(0E64E631-81B5-4947-A24C-C2459C13D7A1),
+	dual,
+	nonextensible,
+	helpstring("IMarshalCOMDataType Interface"),
+	pointer_default(unique)
+]
+interface IMarshalCOMDataType : IDispatch{
+	[id(1), helpstring("method MarshalChar")] HRESULT MarshalChar([in] unsigned char inArg, [in,out] unsigned char* outAtg);
+	[id(2), helpstring("method MarshalCOMChar")] HRESULT MarshalCOMChar([in] CHAR inArg, [in,out] CHAR* outArg);
+	[id(3), helpstring("method MarshalBSTR")] HRESULT MarshalBSTR([in] BSTR inArg, [in,out] BSTR* outArg);
+	[id(4), helpstring("method MarshalLPSTR")] HRESULT MarshalLPSTR([in] LPSTR inArg, [in,out] LPSTR* outArg);
+	[id(5), helpstring("method MarshalDECIMAL")] HRESULT MarshalDECIMAL([in] DECIMAL inArg, [in,out] DECIMAL* outArg);
+	[id(6), helpstring("method MarshalCURRENCY")] HRESULT MarshalCURRENCY([in] CURRENCY inArg, [in,out] CURRENCY* outArg);
+	[id(7), helpstring("method MarshalBoolean")] HRESULT MarshalBoolean([in] boolean inArg, [in,out] boolean* outArg);
+	[id(8), helpstring("method MarshalVariantBool")] HRESULT MarshalVariantBool([in] VARIANT_BOOL inArg, [in,out] VARIANT_BOOL* outArg);
+	[id(9), helpstring("method MarshalDATE")] HRESULT MarshalDATE([in] DATE inArg, [in,out] DATE* outArg);
+	[id(10), helpstring("method MarshalCOMVariant")] HRESULT MarshalCOMVariant([in] VARIANT inArg, [out] VARIANT* outArg, [out,retval] BSTR* typeDescription);
+	[id(11), helpstring("method SortArray")] HRESULT SortArray([in,out] SAFEARRAY(BSTR) inArray, [out,retval] BSTR* mergedResult);
+	[id(12), helpstring("method MarshalCStylelArray")] 
+	HRESULT MarshalCStylelArray([in, length_is(elementSize), size_is(elementSize)] int inArg[],
+		[in] long elementSize, [out,retval] int* sumOfElements);
+	[id(13), helpstring("method MarshalStructure")] HRESULT MarshalStructure([in,out] SampleStruct* inArg);
+};
+[
+	uuid(F011E92E-00A4-48EE-9DFF-8A68D92C6175),
+	version(1.0),
+	helpstring("SampleCOMDataType 1.0 Type Library")
+]
+library SampleCOMDataTypeLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(5B8818EA-0BDE-46E6-B99B-FD149BF61422),
+		helpstring("MarshalCOMDataType Class")
+	]
+	coclass MarshalCOMDataType
+	{
+		[default] interface IMarshalCOMDataType;
+	};
+};

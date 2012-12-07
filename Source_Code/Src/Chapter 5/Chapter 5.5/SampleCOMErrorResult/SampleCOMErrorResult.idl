@@ -1,0 +1,38 @@
+// SampleCOMErrorResult.idl : IDL source for SampleCOMErrorResult
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SampleCOMErrorResult.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(40711F12-768E-4BBA-A0F4-2D0A085DC4DC),
+	dual,
+	nonextensible,
+	helpstring("IMarshalCOMHRESULT Interface"),
+	pointer_default(unique)
+]
+interface IMarshalCOMHRESULT : IDispatch{
+	[id(1), helpstring("method GenerateHRESULTs")] HRESULT GenerateHRESULTs([in]int type);
+	[id(2), helpstring("method ReturnHRESULTs")] HRESULT ReturnHRESULTs([in] int type, [out,retval] HRESULT* hResult);
+};
+[
+	uuid(D91372C7-D325-404F-A120-5B5010E08F44),
+	version(1.0),
+	helpstring("SampleCOMErrorResult 1.0 Type Library")
+]
+library SampleCOMErrorResultLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(6FFFE22E-8011-4C8F-AEE2-2388AABA5367),
+		helpstring("MarshalCOMHRESULT Class")
+	]
+	coclass MarshalCOMHRESULT
+	{
+		[default] interface IMarshalCOMHRESULT;
+	};
+};

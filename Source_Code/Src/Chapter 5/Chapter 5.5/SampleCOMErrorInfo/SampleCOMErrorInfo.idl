@@ -1,0 +1,37 @@
+// SampleCOMErrorInfo.idl : IDL source for SampleCOMErrorInfo
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SampleCOMErrorInfo.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(C398E746-ADF3-4774-BE25-081642377787),
+	dual,
+	nonextensible,
+	helpstring("IMarshalErrorInfo Interface"),
+	pointer_default(unique)
+]
+interface IMarshalErrorInfo : IDispatch{
+	[id(1), helpstring("method GenerateCOMError")] HRESULT GenerateCOMError([in] int type);
+};
+[
+	uuid(CB59C21B-4621-4145-84C7-16ADCD11AC77),
+	version(1.0),
+	helpstring("SampleCOMErrorInfo 1.0 Type Library")
+]
+library SampleCOMErrorInfoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(ACCA4072-A575-475E-A2CB-AFD8F3A7A2F9),
+		helpstring("MarshalErrorInfo Class")
+	]
+	coclass MarshalErrorInfo
+	{
+		[default] interface IMarshalErrorInfo;
+	};
+};

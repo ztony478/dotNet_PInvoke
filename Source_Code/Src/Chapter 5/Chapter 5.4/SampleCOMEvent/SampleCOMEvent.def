@@ -1,0 +1,9 @@
+; SampleCOMEvent.def : Declares the module parameters.
+
+LIBRARY      "SampleCOMEvent.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

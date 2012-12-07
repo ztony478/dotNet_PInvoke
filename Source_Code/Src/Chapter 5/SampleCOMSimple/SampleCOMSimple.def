@@ -1,0 +1,9 @@
+; SampleCOMSimple.def : Declares the module parameters.
+
+LIBRARY      "SampleCOMSimple.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

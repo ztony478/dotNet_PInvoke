@@ -1,0 +1,27 @@
+HKCR
+{
+	SampleCOMSimple.COMMTAObj.1 = s 'COMMTAObj Class'
+	{
+		CLSID = s '{D1CBDEC0-EBF9-49AA-917F-F99E836EA741}'
+	}
+	SampleCOMSimple.COMMTAObj = s 'COMMTAObj Class'
+	{
+		CLSID = s '{D1CBDEC0-EBF9-49AA-917F-F99E836EA741}'
+		CurVer = s 'SampleCOMSimple.COMMTAObj.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D1CBDEC0-EBF9-49AA-917F-F99E836EA741} = s 'COMMTAObj Class'
+		{
+			ProgID = s 'SampleCOMSimple.COMMTAObj.1'
+			VersionIndependentProgID = s 'SampleCOMSimple.COMMTAObj'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{59C84564-8D03-4D55-B322-08DFC0189007}'
+		}
+	}
+}

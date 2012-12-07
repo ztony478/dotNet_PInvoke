@@ -1,0 +1,27 @@
+HKCR
+{
+	SampleCOMErrorInfo.MarshalErrorInfo.1 = s 'MarshalErrorInfo Class'
+	{
+		CLSID = s '{ACCA4072-A575-475E-A2CB-AFD8F3A7A2F9}'
+	}
+	SampleCOMErrorInfo.MarshalErrorInfo = s 'MarshalErrorInfo Class'
+	{
+		CLSID = s '{ACCA4072-A575-475E-A2CB-AFD8F3A7A2F9}'
+		CurVer = s 'SampleCOMErrorInfo.MarshalErrorInfo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {ACCA4072-A575-475E-A2CB-AFD8F3A7A2F9} = s 'MarshalErrorInfo Class'
+		{
+			ProgID = s 'SampleCOMErrorInfo.MarshalErrorInfo.1'
+			VersionIndependentProgID = s 'SampleCOMErrorInfo.MarshalErrorInfo'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{CB59C21B-4621-4145-84C7-16ADCD11AC77}'
+		}
+	}
+}

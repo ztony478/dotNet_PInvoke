@@ -1,0 +1,8 @@
+SWIG
+
+1. ╫Ииэ
+http://www.swig.org/tutorial.html
+http://www.swig.org/doc.html
+
+2.обть
+http://www.swig.org/download.html

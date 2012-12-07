@@ -1,0 +1,27 @@
+HKCR
+{
+	SampleCOMDataType.MarshalCOMDataType.1 = s 'MarshalCOMDataType Class'
+	{
+		CLSID = s '{5B8818EA-0BDE-46E6-B99B-FD149BF61422}'
+	}
+	SampleCOMDataType.MarshalCOMDataType = s 'MarshalCOMDataType Class'
+	{
+		CLSID = s '{5B8818EA-0BDE-46E6-B99B-FD149BF61422}'
+		CurVer = s 'SampleCOMDataType.MarshalCOMDataType.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5B8818EA-0BDE-46E6-B99B-FD149BF61422} = s 'MarshalCOMDataType Class'
+		{
+			ProgID = s 'SampleCOMDataType.MarshalCOMDataType.1'
+			VersionIndependentProgID = s 'SampleCOMDataType.MarshalCOMDataType'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{F011E92E-00A4-48EE-9DFF-8A68D92C6175}'
+		}
+	}
+}

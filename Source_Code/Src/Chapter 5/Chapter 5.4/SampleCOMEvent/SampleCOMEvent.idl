@@ -1,0 +1,49 @@
+// SampleCOMEvent.idl : IDL source for SampleCOMEvent
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SampleCOMEvent.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(01ECCC68-8A82-4EF3-9049-9AD5D936765E),
+	dual,
+	nonextensible,
+	helpstring("IMarshalCOMEvent Interface"),
+	pointer_default(unique)
+]
+interface IMarshalCOMEvent : IDispatch{
+	[id(1), helpstring("method ChangeStringValue")] HRESULT ChangeStringValue([in] BSTR originalString);
+};
+[
+	uuid(B5F7D422-9663-45F5-A0C1-FD1CB094E7E8),
+	version(1.0),
+	helpstring("SampleCOMEvent 1.0 Type Library")
+]
+library SampleCOMEventLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(8A7FF4CA-A9B1-4367-A35C-1D1BCC526F30),
+		helpstring("_IMarshalCOMEventEvents Interface")
+	]
+	dispinterface _IMarshalCOMEventEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("String value changed event")]
+		HRESULT OnStringChanged([in]BSTR originalString, [in]BSTR changedString);
+	};
+	[
+		uuid(91192C15-C17C-4BA4-A7E0-EC380C216FD6),
+		helpstring("MarshalCOMEvent Class")
+	]
+	coclass MarshalCOMEvent
+	{
+		[default] interface IMarshalCOMEvent;
+		[default, source] dispinterface _IMarshalCOMEventEvents;
+	};
+};

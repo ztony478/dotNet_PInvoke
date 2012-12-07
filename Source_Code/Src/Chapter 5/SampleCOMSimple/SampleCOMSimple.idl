@@ -1,0 +1,66 @@
+// SampleCOMSimple.idl : IDL source for SampleCOMSimple
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SampleCOMSimple.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(FB1DE569-9B3D-491F-8EFC-25478CFBF172),
+	dual,
+	nonextensible,
+	helpstring("ISimpleCOMCalculator Interface"),
+	pointer_default(unique)
+]
+interface ISimpleCOMCalculator : IDispatch{
+	[id(1), helpstring("返回两个整数相加的结果")]
+	HRESULT Add([in] int num0, [in] int num1, [out,retval] int* result);
+	[id(2), helpstring("返回两个整数相减的结果")]
+	HRESULT Subtract([in] int num0, [in] int num1, [out,retval] int* result);
+	[id(3), helpstring("返回两个整数相乘的结果")]
+	HRESULT Multiply([in] int num0, [in] int num1, [out,retval] int* result);
+	[id(4), helpstring("返回两个整数相除的结果（double）")]
+	HRESULT Divide([in] int num0, [in] int num1, [out,retval] double* result);
+	[id(5), helpstring("返回阶乘结果")]
+	HRESULT Factorial([in,out] int* n);
+};
+[
+	object,
+	uuid(24CD8CB8-A1B3-4D6B-93EB-17F40B609210),
+	dual,
+	nonextensible,
+	helpstring("ICOMMTAObj Interface"),
+	pointer_default(unique)
+]
+interface ICOMMTAObj : IDispatch{
+	[id(1), helpstring("method AddIntegers")] HRESULT AddIntegers([in] int num0, [in] int num1, [out,retval] int* result);
+	[id(2), helpstring("method ProcessString")] HRESULT ProcessString([in] BSTR inString, [out,retval] BSTR* outString);
+};
+[
+	uuid(59C84564-8D03-4D55-B322-08DFC0189007),
+	version(1.0),
+	helpstring("SampleCOMSimple 1.0 Type Library")
+]
+library SampleCOMSimpleLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(C7386CE7-47B0-43C4-82D4-5FFA7A359EEA),
+		helpstring("SimpleCOMCalculator Class")
+	]
+	coclass SimpleCOMCalculator
+	{
+		[default] interface ISimpleCOMCalculator;
+	};
+	[
+		uuid(D1CBDEC0-EBF9-49AA-917F-F99E836EA741),
+		helpstring("COMMTAObj Class")
+	]
+	coclass COMMTAObj
+	{
+		[default] interface ICOMMTAObj;
+	};
+};

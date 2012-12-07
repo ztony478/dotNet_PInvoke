@@ -1,0 +1,12 @@
+安装Visual Studio （安装时选择安装SDK），那么此示例就位于如下文件夹中：
+
+X:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\Samples\Technologies\Interop\PlatformInvoke
+或
+X:\Program Files\Microsoft.NET\SDK\v2.0\LateBreaking\PlatformInvoke
+或
+X:\Program Files\Visual Studio 8\SDK\v2.0\LateBreaking\PlatformInvoke
+或
+X:\Program Files\Microsoft Visual Studio 9.0\Samples\1033\CSharpSamples.zip压缩包中的Pinvoke，COMInteropPart1，COMInteropPart2目录中
+
+有关此平台调用示例的介绍，请参考：
+http://msdn.microsoft.com/zh-cn/library/8bbftkst(VS.80).aspx

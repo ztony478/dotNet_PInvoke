@@ -1,0 +1,40 @@
+// SampleCOMCollection.idl : IDL source for SampleCOMCollection
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SampleCOMCollection.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(D49A060B-29C6-46D5-AA60-2C4EB0FA60C2),
+	dual,
+	nonextensible,
+	helpstring("IMarshalCOMCollection Interface"),
+	pointer_default(unique)
+]
+interface IMarshalCOMCollection : IDispatch{
+	[id(1), helpstring("method AddElements")] HRESULT AddElement([in] BSTR elem);
+	[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+	[propget, id(2), helpstring("property Count")] HRESULT Count([out, retval] long* pVal);
+	[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] long index, [out, retval] VARIANT* pVal);
+};
+[
+	uuid(B910FDF5-6E92-4841-B7A9-DE6C0CBE14F7),
+	version(1.0),
+	helpstring("SampleCOMCollection 1.0 Type Library")
+]
+library SampleCOMCollectionLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(7F58F669-05CD-4390-96AE-AAF9056CB7A4),
+		helpstring("MarshalCOMCollection Class")
+	]
+	coclass MarshalCOMCollection
+	{
+		[default] interface IMarshalCOMCollection;
+	};
+};

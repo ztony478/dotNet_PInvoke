@@ -1,0 +1,27 @@
+HKCR
+{
+	SampleCOMErrorResult.MarshalCOMHRESUL.1 = s 'MarshalCOMHRESULT Class'
+	{
+		CLSID = s '{6FFFE22E-8011-4C8F-AEE2-2388AABA5367}'
+	}
+	SampleCOMErrorResult.MarshalCOMHRESULT = s 'MarshalCOMHRESULT Class'
+	{
+		CLSID = s '{6FFFE22E-8011-4C8F-AEE2-2388AABA5367}'
+		CurVer = s 'SampleCOMErrorResult.MarshalCOMHRESUL.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6FFFE22E-8011-4C8F-AEE2-2388AABA5367} = s 'MarshalCOMHRESULT Class'
+		{
+			ProgID = s 'SampleCOMErrorResult.MarshalCOMHRESUL.1'
+			VersionIndependentProgID = s 'SampleCOMErrorResult.MarshalCOMHRESULT'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{D91372C7-D325-404F-A120-5B5010E08F44}'
+		}
+	}
+}
